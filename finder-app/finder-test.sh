@@ -8,7 +8,10 @@ set -u
 NUMFILES=10
 WRITESTR=AELD_IS_FUN
 WRITEDIR=/tmp/aeld-data
-username=$(cat conf/username.txt)
+username=$(cat ../conf/username.txt)
+
+make clean
+make
 
 if [ $# -lt 3 ]
 then

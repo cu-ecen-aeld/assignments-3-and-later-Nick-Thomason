@@ -109,7 +109,7 @@ make ARCH=arm64 CROSS_COMPILE=${CROSS_COMPILE} writer
 # on the target rootfs
 cp finder-test.sh finder.sh writer.sh writer ${OUTDIR}/rootfs/home
 cp -r ../conf ${OUTDIR}/rootfs
-cp -r conf ${OUTDIR}/rootfs/home
+cp -r ../conf ${OUTDIR}/rootfs/home
 
 cp autorun-qemu.sh ${OUTDIR}/rootfs/home
 

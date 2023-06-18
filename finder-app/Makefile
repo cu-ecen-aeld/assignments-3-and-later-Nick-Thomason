@@ -1,4 +1,4 @@
-CC := gcc
+CC := aarch64-none-linux-gnu-gcc-10.3.1
 CFLAGS := -Wall -Werror
 
 SRCS := writer.c

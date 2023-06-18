@@ -4,11 +4,17 @@
 
 set -e
 
-OUTDIR=$1
-
+OUTDIR=/home/nick/Github/cu_ecen_aeld/linux_build/
+$1
 if [ -z "${OUTDIR}" ]; then
-    OUTDIR=/tmp/aeld
-    echo "No outdir specified, using ${OUTDIR}"
+    echo "No outdir specified. Please provide a valid outdir argument."
+    exit 1
+fi
+
+mkdir -p "${OUTDIR}"
+if [ $? -ne 0 ]; then
+    echo "Failed to create outdir directory."
+    exit 1
 fi
 
 KERNEL_IMAGE=${OUTDIR}/Image

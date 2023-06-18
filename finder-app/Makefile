@@ -1,4 +1,4 @@
-CC := gcc
+CC := gcc-10.3.1
 CFLAGS := -Wall -Werror
 
 SRCS := writer.c

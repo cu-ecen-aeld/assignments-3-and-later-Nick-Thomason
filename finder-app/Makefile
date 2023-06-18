@@ -1,26 +1,19 @@
-DEFAULT_CC = gcc 
-CC = $(DEFAULT_CC)
+CC := aarch64-none-linux-gnu-gcc
+CFLAGS := -Wall -Werror
 
-ifdef CROSS_COMPILE
-	CC = $(CROSS_COMPILE)$(DEFAULT_CC)
-endif
+SRCS := writer.c
+OBJS := $(SRCS:.c=.o)
+TARGET := writer
 
-CFLAGS = -Wall -Werror
-LDFLAGS = 
-
-SRCS = writer.c
-
-OBJS = $(SRCS:.c=.o)
-
-TARGET = writer
+.PHONY: all clean
 
 all: $(TARGET)
-		
+
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
 $(TARGET): $(OBJS)
-	$(CC) $(LDFLAGS) -o $@ $^
+	$(CC) -o $@ $^
 
 clean:
 	rm -f $(OBJS) $(TARGET)

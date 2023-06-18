@@ -11,7 +11,11 @@ KERNEL_VERSION=v5.1.10
 BUSYBOX_VERSION=1_33_1
 FINDER_APP_DIR=$(realpath $(dirname $0))
 ARCH=arm64
+<<<<<<< HEAD
 CROSS_COMPILE=aarch64-none-linux-gnu-gcc-10.3.1
+=======
+CROSS_COMPILE=aarch64-none-linux-gnu-
+>>>>>>> assignments-base/assignment3-part-1
 
 if [ $# -lt 1 ]
 then

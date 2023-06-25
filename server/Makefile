@@ -1,12 +1,10 @@
-ifeq ($(CROSS_COMPILE),aarch64-none-linux-gnu)
-	CC := aarch64-none-linux-gnu-gcc
-else
-	CC := gcc
-endif
+CC = gcc
+CFLAGS = -Wall
+LDFLAGS = #-lssl -lcrypto
+all: aesdsocket
 
-aesdsocket: aesdsocket.o
-	${CC} aesdsocket.o -o aesdsocket
-aesdsocket.o:
-	${CC} -g -c -Wall -Werror aesdsocket.c -o aesdsocket.o
+aesdsocket: aesdsocket.c
+	$(CC) $(CFLAGS) $< -o $@ $(LDFLAGS)
+
 clean:
-	-rm -f aesdsocket.o aesdsocket
+	rm -f aesdsocket
